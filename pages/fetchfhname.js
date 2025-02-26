@@ -39,7 +39,7 @@ export default function FetchFHNAME() {
           }}
         />
         <button
-          className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-6 rounded-xl transition-colors"
+          className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 sm:px-6 rounded-xl transition-colors mt-2 sm:mt-0 shadow-md"
           onClick={refetch}
         >
           SEARCH

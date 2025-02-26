@@ -1,11 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center px-4 sm:px-0">
-      <h1 className="text-3xl md:text-4xl font-bold text-white text-center mb-6 md:mb-8 drop-shadow-md leading-tight">
-        Welcome to the Voter Information Portal
-      </h1>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-8 md:mb-12">
         <Link href="/fetchid" className="no-underline">
@@ -13,7 +11,7 @@ export default function Home() {
             <h2 className="text-xl md:text-2xl font-bold text-booth-DEFAULT mb-2 md:mb-4">Search by Voter ID</h2>
             <p className="text-gray-600 mb-4 text-sm md:text-base">Find voter details using their unique voter identification number</p>
             <div className="mt-auto">
-              <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto">
+              <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto shadow-md">
                 Search ID
               </button>
             </div>
@@ -25,7 +23,7 @@ export default function Home() {
             <h2 className="text-xl md:text-2xl font-bold text-booth-DEFAULT mb-2 md:mb-4">Search by Name</h2>
             <p className="text-gray-600 mb-4 text-sm md:text-base">Locate voters by searching with their registered name</p>
             <div className="mt-auto">
-              <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto">
+              <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto shadow-md">
                 Search Name
               </button>
             </div>
@@ -37,7 +35,7 @@ export default function Home() {
             <h2 className="text-xl md:text-2xl font-bold text-booth-DEFAULT mb-2 md:mb-4">Search by Relative</h2>
             <p className="text-gray-600 mb-4 text-sm md:text-base">Find voters by searching for their father's or husband's name</p>
             <div className="mt-auto">
-              <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto">
+              <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto shadow-md">
                 Search Relative
               </button>
             </div>
@@ -45,7 +43,7 @@ export default function Home() {
         </Link>
       </div>
       
-      <div className="SP w-full sm:w-11/12 md:w-10/12 h-40 sm:h-48 md:h-64 lg:h-80 rounded-2xl shadow-xl overflow-hidden">
+      <div className="SP w-full sm:w-11/12 md:w-10/12 rounded-2xl shadow-xl overflow-hidden">
         {/* SP background image handled in CSS */}
       </div>
     </div>

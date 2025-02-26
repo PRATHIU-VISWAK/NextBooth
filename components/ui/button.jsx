@@ -42,3 +42,15 @@ const Button = React.forwardRef(({ className, variant, size, ...props }, ref) =>
 Button.displayName = "Button"
 
 export { Button, buttonVariants } 
+
+export default function Button({ children, onClick, className = "", type = "button" }) {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={`bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors ${className}`}
+    >
+      {children}
+    </button>
+  );
+} 

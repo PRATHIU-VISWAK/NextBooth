@@ -2,8 +2,9 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
@@ -50,8 +51,8 @@ module.exports = {
         },
         booth: {
           light: "#38ef7d",
-          DEFAULT: "#2c724f",
-          dark: "#0f0e24",
+          DEFAULT: "#333333",
+          dark: "#222222",
         },
       },
       borderRadius: {
@@ -81,4 +82,12 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate"), require("daisyui")],
+  corePlugins: {
+    preflight: true,
+  },
+  safelist: [
+    'bg-booth-DEFAULT',
+    'text-white',
+    'shadow-md',
+  ],
 } 
