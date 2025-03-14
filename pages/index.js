@@ -4,6 +4,12 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <div className="flex flex-col items-center px-4 sm:px-0">
+
+      <div className="SP w-full sm:w-11/12 md:w-10/12 rounded-2xl shadow-xl overflow-hidden p-4 md:p-6">
+        {/* SP background image handled in CSS */}
+      </div>
+
+      <div className="p-4 md:p-6" > </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-8 md:mb-12">
         <Link href="/fetchid" className="no-underline">
@@ -41,10 +47,6 @@ export default function Home() {
             </div>
           </div>
         </Link>
-      </div>
-      
-      <div className="SP w-full sm:w-11/12 md:w-10/12 rounded-2xl shadow-xl overflow-hidden">
-        {/* SP background image handled in CSS */}
       </div>
     </div>
   );
