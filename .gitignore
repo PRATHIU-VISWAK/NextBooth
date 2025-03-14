@@ -64,3 +64,9 @@ logs
 .npm
 .eslintcache
 .stylelintcache 
+
+# Cursor editor files
+.cursor/
+
+# Data files
+63.csv
