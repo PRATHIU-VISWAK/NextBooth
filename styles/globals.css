@@ -186,17 +186,17 @@ button:hover {
 /* Card hover effects - with frosted glass effect */
 .hover-card {
   transition: all 0.3s ease;
-  background-color: rgba(241, 230, 230, 0.6); /* More transparent */
+  background-color: rgb(255, 0, 0); /* More transparent */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(255, 255, 255);
   border-radius: var(--radius);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .hover-card:hover {
   transform: translateY(-5px);
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgb(255, 0, 0);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -217,7 +217,7 @@ button:hover {
 
 /* Card content - ensure text remains visible on all cards */
 .hover-card h2, .hover-card p {
-  color: #000000;
+  color: #ffffff;
   position: relative;
   z-index: 2;
 }
