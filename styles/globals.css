@@ -82,14 +82,14 @@ button:hover {
 }
 
 .result {
-  color: rgb(0, 0, 0, 0.9);
+  color: rgb(243, 243, 243);
   font-size: 1.1rem;
   background-image: linear-gradient(
       to bottom,
-      rgba(47, 107, 7, 0.6),
-      rgba(3, 65, 11, 0.7)
+      rgba(233, 75, 75, 0.6),
+      rgb(255, 0, 0)
     ),
-    url("/assets/100A.jpeg");
+    url("");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -100,10 +100,10 @@ button:hover {
   transform: translateY(-5px);
   background-image: linear-gradient(
       to bottom,
-      rgba(47, 107, 7, 0.3),
-      rgba(3, 65, 11, 0.4)
+      rgb(255, 0, 0),
+      rgb(255, 0, 0)
     ),
-    url("/assets/100A.jpeg");
+    url("");
 }
 
 .resultbg {
