@@ -154,7 +154,7 @@ button:hover {
   }
 
   button:hover {
-    background-color: #1f5238 !important;
+    background-color: #fa0000 !important;
   }
 
   /* Add contrast for placeholder text */
@@ -173,7 +173,7 @@ button:hover {
 
 /* Loading animation */
 .loader {
-  border-top-color: #38ef7d;
+  border-top-color: #fd0000;
   -webkit-animation: spinner 1s linear infinite;
   animation: spinner 1s linear infinite;
 }
