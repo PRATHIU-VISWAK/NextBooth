@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center px-4 sm:px-0">
 
-      <div className="SP w-full sm:w-11/12 md:w-10/12 rounded-2xl shadow-xl overflow-hidden p-4 md:p-6">
+      <div className="SP w-full sm:w-11/12 md:w-10/12 rounded-2xl shadow-xl overflow-hidden p-2 md:p-2">
         {/* SP background image handled in CSS */}
       </div>
 
