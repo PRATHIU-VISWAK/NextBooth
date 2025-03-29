@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "./_app";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -6,12 +6,13 @@ import { DisplayCARD } from "../components/DisplayCARD";
 
 export default function FetchFHNAME() {
   const { INPUT, setINPUT } = useContext(AppContext);
+  const [selectedBooth, setSelectedBooth] = useState("all");
   const { data, isLoading, refetch, isError, error } = useQuery({
     queryKey: ["FHNAME"],
     queryFn: async () => {
       try {
         const response = await axios.post(
-          `/api/booths/FH_NAME?name=${INPUT}`
+          `/api/booths/FH_NAME?name=${INPUT}&booth=${selectedBooth}`
         );
         return response.data;
       } catch (error) {
@@ -25,7 +26,19 @@ export default function FetchFHNAME() {
   return (
     <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
       <h1 className="text-2xl font-bold mb-6 text-booth-dark">Search by Relative's Name</h1>
-      
+      <select
+          value={selectedBooth}
+          onChange={(e) => setSelectedBooth(e.target.value)}
+          className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-6 rounded-xl transition-colors"
+        >
+          <option value="all">All Booths</option>
+          <option value="62">Booth 62</option>
+          <option value="63">Booth 63</option>
+          <option value="164">Booth 164</option>
+          <option value="165">Booth 165</option>
+          <option value="167">Booth 167</option>
+        </select>
+        <div className="flex flex-col sm:flex-row gap-4 py-2 px-6"></div>
       <div className="flex flex-col sm:flex-row gap-4">
         <input
           type="text"

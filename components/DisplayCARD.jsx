@@ -15,6 +15,9 @@ export const DisplayCARD = ({ name }) => {
           <h2 className="text-sm md:text-base font-bold">
             <span className="text-booth-dark">SN:</span> {name?.SN}
           </h2>
+          <h2 className="text-sm md:text-base font-bold">
+            <span className="text-booth-dark">Door:</span> {name?.House_Number}
+          </h2>
         </div>
         
         <h2 className="text-base md:text-lg font-extrabold border-b pb-1 mb-1 mt-1">

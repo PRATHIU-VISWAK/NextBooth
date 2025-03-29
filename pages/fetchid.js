@@ -6,6 +6,7 @@ import { DisplayCARD } from "../components/DisplayCARD";
 
 export default function FetchID() {
   const { INPUT, setINPUT } = useContext(AppContext);
+
   const { data, isLoading, refetch, isError, error } = useQuery({
     queryKey: ["ID"],
     queryFn: async () => {
@@ -25,7 +26,7 @@ export default function FetchID() {
   return (
     <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg max-w-5xl mx-auto">
       <h1 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-booth-dark">Search by Voter ID</h1>
-      
+     
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="text"

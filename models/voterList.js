@@ -7,6 +7,7 @@ const voterSchema = new mongoose.Schema({
   VoterID: String,
   Name: String,
   Father_Husband: String,
+  House_Number: String,
   sex: String,
   Age: Number,
 });

@@ -10,7 +10,14 @@ export default async function handler(req, res) {
     await dbConnect();
     
     const name = String(req.query.name);
-    const person = await VoterList.find({ Father_Husband: name });
+    const booth = req.query.booth;
+
+    let query = { Father_Husband: name };
+    if (booth && booth !== 'all') {
+      query.Booth = parseInt(booth);
+    }
+
+    const person = await VoterList.find(query);
 
     if (person) {
       res.status(200).json(person);
