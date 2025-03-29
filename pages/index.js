@@ -15,7 +15,7 @@ export default function Home() {
         <Link href="/fetchid" className="no-underline">
           <div className="hover-card p-4 md:p-6 text-gray-800 h-full">
             <h2 className="text-xl md:text-2xl font-bold text-booth-DEFAULT mb-2 md:mb-4">Search by Voter ID</h2>
-            <p className="text-gray-600 mb-4 text-sm md:text-base">Find voter details using their unique voter identification number</p>
+            <p className="text-gray-600 mb-4 text-sm md:text-base">அவர்களின் தனிப்பட்ட வாக்காளர் அடையாள எண்ணைப் பயன்படுத்தி வாக்காளர் விவரங்களை கண்டறியுங்கள்</p>
             <div className="mt-auto">
               <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto shadow-md">
                 Search ID
@@ -27,7 +27,7 @@ export default function Home() {
         <Link href="/fetchname" className="no-underline">
           <div className="hover-card p-4 md:p-6 text-gray-800 h-full">
             <h2 className="text-xl md:text-2xl font-bold text-booth-DEFAULT mb-2 md:mb-4">Search by Name</h2>
-            <p className="text-gray-600 mb-4 text-sm md:text-base">Locate voters by searching with their registered name</p>
+            <p className="text-gray-600 mb-4 text-sm md:text-base">பதிவுசெய்யப்பட்ட பெயரை பயன்படுத்தி வாக்காளர் விவரங்களை தேடுங்கள்</p>
             <div className="mt-auto">
               <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto shadow-md">
                 Search Name
@@ -39,7 +39,7 @@ export default function Home() {
         <Link href="/fetchfhname" className="no-underline sm:col-span-2 lg:col-span-1">
           <div className="hover-card p-4 md:p-6 text-gray-800 h-full">
             <h2 className="text-xl md:text-2xl font-bold text-booth-DEFAULT mb-2 md:mb-4">Search by Relative</h2>
-            <p className="text-gray-600 mb-4 text-sm md:text-base">Find voters by searching for their father's or husband's name</p>
+            <p className="text-gray-600 mb-4 text-sm md:text-base">வாக்காளர்களை அவர்களின் தந்தையுடையோ அல்லது கணவருடையோ பெயரால் தேடுங்கள்</p>
             <div className="mt-auto">
               <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto shadow-md">
                 Search Relative
