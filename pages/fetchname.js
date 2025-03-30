@@ -29,7 +29,7 @@ export default function FetchNAME() {
       <select
           value={selectedBooth}
           onChange={(e) => setSelectedBooth(e.target.value)}
-          className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-6 rounded-xl transition-colors"
+          className="bg-black hover:bg-grey text-white font-bold py-2 px-6 rounded-xl"
         >
           <option value="all">All Booths</option>
           <option value="62">Booth 62</option>
