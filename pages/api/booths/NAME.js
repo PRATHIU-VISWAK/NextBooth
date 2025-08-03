@@ -15,8 +15,8 @@ export default async function handler(req, res) {
     // Create query to search in both NameENG and Name (Tamil) fields
     let query = {
       $or: [
-        { NameENG: { $regex: name, $options: 'i' } }, // Case-insensitive search in English name
-        { Name: { $regex: name, $options: 'i' } }     // Case-insensitive search in Tamil name
+        { NameENG: name },
+        { Name: name }
       ]
     };
 

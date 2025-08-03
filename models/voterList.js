@@ -6,10 +6,14 @@ const voterSchema = new mongoose.Schema({
   PN: Number,
   VoterID: String,
   Name: String,
+  NameENG: String,
   Father_Husband: String,
+  Father_HusbandENG: String,
   House_Number: String,
   sex: String,
   Age: Number,
+  Phone: String,
+  Govt_Phone: String,
 });
 
 // Prevent model redefinition in development with hot reload
