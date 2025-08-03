@@ -35,6 +35,18 @@ export default function Home() {
             </div>
           </div>
         </Link>
+
+        <Link href="/fetchphone" className="no-underline sm:col-span-2 lg:col-span-1">
+          <div className="hover-card p-4 md:p-6 text-gray-800 h-full">
+            <h2 className="text-xl md:text-2xl font-bold text-booth-DEFAULT mb-2 md:mb-4">Search by Phone number</h2>
+            <p className="text-gray-600 mb-4 text-sm md:text-base">வாக்காளரின் தொலைபேசி எண்ணைப் பயன்படுத்தி கண்டறியுங்கள்</p>
+            <div className="mt-auto">
+              <button className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 rounded-lg transition-colors w-full sm:w-auto shadow-md">
+                Search
+              </button>
+            </div>
+          </div>
+        </Link>
         
         <Link href="/fetchfhname" className="no-underline sm:col-span-2 lg:col-span-1">
           <div className="hover-card p-4 md:p-6 text-gray-800 h-full">
@@ -47,6 +59,7 @@ export default function Home() {
             </div>
           </div>
         </Link>
+
       </div>
     </div>
   );
