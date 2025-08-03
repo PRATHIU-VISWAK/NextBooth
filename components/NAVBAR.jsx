@@ -41,6 +41,9 @@ export const NAVBAR = () => {
           <Link href="/fetchfhname" className={`text-white font-semibold py-2 px-4 rounded-xl ${isActive('/fetchfhname')} transition-all`}>
             RELATIVE'S NAME
           </Link>
+          <Link href="/fetchphone" className={`text-white font-semibold py-2 px-4 rounded-xl ${isActive('/fetchphone')} transition-all`}>
+            Phone Number
+          </Link>
         </div>
       </div>
       
@@ -57,6 +60,9 @@ export const NAVBAR = () => {
         </Link>
         <Link href="/fetchfhname" className={`block text-white font-semibold py-2 px-4 rounded-xl ${isActive('/fetchfhname')} transition-all`}>
           RELATIVE'S NAME
+        </Link>
+        <Link href="/fetchphone" className={`block text-white font-semibold py-2 px-4 rounded-xl ${isActive('/fetchphone')} transition-all`}>
+          Phone Number
         </Link>
       </div>
     </nav>
