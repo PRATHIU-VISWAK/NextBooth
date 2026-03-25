@@ -112,11 +112,12 @@ button:hover {
 
 .SP {
   background-image: url('/assets/100BSPV.png');
-  background-size: contain;
+  background-size: 100% auto; /* Width fills 100%, height scales proportionally */
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  height: 85vh;
+  /* Height will auto-adjust based on the image's aspect ratio */
+  padding-bottom: 141.4%; /* Aspect ratio: 100 Baht note is approximately 1:1.414 (portrait) */
   border-radius: 1rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   position: relative;

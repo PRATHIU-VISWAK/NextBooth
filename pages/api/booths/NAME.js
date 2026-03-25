@@ -1,6 +1,11 @@
 import dbConnect from '../../../lib/mongodb';
 import VoterList from '../../../models/voterList';
 
+const BOOTH_SETS = {
+  "100":  [76, 77, 78, 82, 83, 191, 192],
+  "100A": [193, 194, 195, 196, 197, 198, 199, 200, 201],
+};
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
@@ -22,10 +27,23 @@ export default async function handler(req, res) {
 
     // Add booth filter if specified
     if (booth && booth !== 'all') {
+      let boothNumbers;
+
+      if (BOOTH_SETS[booth]) {
+        // Named set like "100" or "100A"
+        boothNumbers = BOOTH_SETS[booth];
+      } else if (booth.includes(',')) {
+        // Comma-separated list
+        boothNumbers = booth.split(',').map(Number);
+      } else {
+        // Single booth number
+        boothNumbers = [parseInt(booth)];
+      }
+
       query = {
         $and: [
           query,
-          { Booth: parseInt(booth) }
+          { Booth: { $in: boothNumbers } }
         ]
       };
     }

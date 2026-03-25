@@ -27,17 +27,32 @@ export default function Fetchphone() {
     <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
       <h1 className="text-2xl font-bold mb-6 text-booth-dark">Search by Phone Number</h1>
       <select
-          value={selectedBooth}
-          onChange={(e) => setSelectedBooth(e.target.value)}
-          className="bg-black hover:bg-grey text-white font-bold py-2 px-6 rounded-xl"
-        >
-          <option value="all">All Booths</option>
-          <option value="62">Booth 62</option>
-          <option value="63">Booth 63</option>
-          <option value="164">Booth 164</option>
-          <option value="165">Booth 165</option>
-          <option value="167">Booth 167</option>
-        </select>
+        value={selectedBooth}
+        onChange={(e) => setSelectedBooth(e.target.value)}
+        className="bg-black hover:bg-grey text-white font-bold py-2 px-6 rounded-xl"
+      >
+        <option value="all">All Booths</option>
+        <optgroup label="────" disabled />
+        <option value="100">100 (Booths 76–192)</option>
+        <option value="100A">100A (Booths 193–201)</option>
+        <optgroup label="── Individual ──" disabled />
+        <option value="76">Booth 76</option>
+        <option value="77">Booth 77</option>
+        <option value="78">Booth 78</option>
+        <option value="82">Booth 82</option>
+        <option value="83">Booth 83</option>
+        <option value="191">Booth 191</option>
+        <option value="192">Booth 192</option>
+        <option value="193">Booth 193</option>
+        <option value="194">Booth 194</option>
+        <option value="195">Booth 195</option>
+        <option value="196">Booth 196</option>
+        <option value="197">Booth 197</option>
+        <option value="198">Booth 198</option>
+        <option value="199">Booth 199</option>
+        <option value="200">Booth 200</option>
+        <option value="201">Booth 201</option>
+      </select>
         <div className="flex flex-col sm:flex-row gap-4 py-2 px-6"></div>
       <div className="flex flex-col sm:flex-row gap-4">
         <input
