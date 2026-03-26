@@ -32,9 +32,9 @@ export default function FetchNAME() {
         className="bg-black hover:bg-grey text-white font-bold py-2 px-6 rounded-xl"
       >
         <option value="all">All Booths</option>
-        <optgroup label="────" disabled />
-        <option value="100">100 (Booths 76–192)</option>
-        <option value="100A">100A (Booths 193–201)</option>
+        <optgroup label="── Ward ──" disabled />
+        <option value="100 ward"> 100 </option>
+        <option value="100A ward"> 100A </option>
         <optgroup label="── Individual ──" disabled />
         <option value="76">Booth 76</option>
         <option value="77">Booth 77</option>
