@@ -2,8 +2,9 @@ import dbConnect from '../../../lib/mongodb';
 import VoterList from '../../../models/voterList';
 
 const BOOTH_SETS = {
-  "100":  [191, 192 , 195 , 198 , 199 , 200 , 201],
-  "100A": [76 , 77 , 78 , 82 , 83 , 193 , 194 , 196 , 197],
+  "100":   [191, 192, 195, 198, 199, 200, 201], // Covers 100 & 100A
+  "100BC": [76, 77, 78, 193, 194, 196, 197],    // Covers 100B & 100C
+  "100D":  [82, 83],                            // Covers 100D
 };
 
 export default async function handler(req, res) {

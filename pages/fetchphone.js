@@ -32,10 +32,13 @@ export default function Fetchphone() {
         className="bg-black hover:bg-grey text-white font-bold py-2 px-6 rounded-xl"
       >
         <option value="all">All Booths</option>
-        <optgroup label="── Ward ──" disabled />
-        <option value="100 ward"> 100 </option>
-        <option value="100A ward"> 100A </option>
-        <optgroup label="── Individual ──" disabled />
+        
+        <optgroup label="── Wards ──" disabled />
+        <option value="100">Ward 100 & 100A</option>
+        <option value="100BC">Ward 100B & 100C</option>
+        <option value="100D">Ward 100D</option>
+        
+        <optgroup label="── Individual Booth ──" disabled />
         <option value="76">Booth 76</option>
         <option value="77">Booth 77</option>
         <option value="78">Booth 78</option>
