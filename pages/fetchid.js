@@ -11,67 +11,92 @@ export default function FetchID() {
     queryKey: ["ID"],
     queryFn: async () => {
       try {
-        const response = await axios.post(
-          `/api/booths/ID?id=${INPUT}`
-        );
+        const response = await axios.post(`/api/booths/ID?id=${INPUT}`);
         return response.data;
       } catch (error) {
         throw error;
       }
     },
-    enabled: false, // Don't fetch on mount
+    enabled: false,
     retry: 1,
   });
 
   return (
-    <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg max-w-5xl mx-auto">
-      <h1 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-booth-dark">Search by Voter ID</h1>
-     
-      <div className="flex flex-col sm:flex-row gap-3">
+    <div className="search-page">
+      <h1 className="search-page-title">Search by Voter ID</h1>
+
+      <div className="search-input-wrap">
+        <span className="search-input-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </span>
         <input
           type="text"
-          placeholder="Enter Voter ID"
-          className="border border-gray-300 rounded-xl px-3 py-2 w-full sm:flex-grow text-base focus:ring-2 focus:ring-booth-DEFAULT focus:border-transparent outline-none"
-          onChange={(event) => {
-            setINPUT(event.target.value);
-          }}
+          placeholder="Enter Voter ID..."
+          className="search-input"
+          onChange={(event) => setINPUT(event.target.value)}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') refetch();
+            if (e.key === "Enter") refetch();
           }}
         />
-        <button
-          className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-4 sm:px-6 rounded-xl transition-colors mt-2 sm:mt-0"
-          onClick={refetch}
-        >
-          SEARCH
-        </button>
       </div>
 
+      <button className="search-submit-btn" onClick={refetch}>
+        Search
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </button>
+
       {isError && (
-        <div className="mt-4 p-3 sm:p-4 bg-red-100 text-red-700 rounded-lg text-sm md:text-base">
-          Error: {error.message || "Failed to retrieve voter information"}
+        <div className="search-error">
+          Error: {error?.message || "Failed to retrieve voter information"}
         </div>
       )}
 
-      <div className="mt-6 md:mt-8">
+      <div className="mt-2">
         {isLoading ? (
-          <div className="flex justify-center py-16 sm:py-20">
-            <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-10 w-10 md:h-12 md:w-12"></div>
+          <div className="flex justify-center py-16">
+            <div className="loader rounded-full border-4 h-10 w-10"></div>
           </div>
         ) : (
-          <div className="transition-all duration-300">
-            {data && <DisplayCARD name={data} />}
-            {data === null && (
-              <div className="text-center py-8 md:py-10 text-gray-500 text-sm md:text-base">
-                No voter found with this ID
+          <>
+            {data && (
+              <div className="results-grid">
+                <DisplayCARD name={data} />
               </div>
             )}
-          </div>
+            {data === null && (
+              <div className="no-results">No voter found with this ID</div>
+            )}
+          </>
         )}
       </div>
     </div>
   );
 }
 
-// Set the page title
-FetchID.pageTitle = "Search by Voter ID"; 
+FetchID.pageTitle = "Search by Voter ID";

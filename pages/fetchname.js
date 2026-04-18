@@ -7,6 +7,7 @@ import { DisplayCARD } from "../components/DisplayCARD";
 export default function FetchNAME() {
   const { INPUT, setINPUT } = useContext(AppContext);
   const [selectedBooth, setSelectedBooth] = useState("all");
+
   const { data, isLoading, refetch, isError, error } = useQuery({
     queryKey: ["NAME"],
     queryFn: async () => {
@@ -24,20 +25,20 @@ export default function FetchNAME() {
   });
 
   return (
-    <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-      <h1 className="text-2xl font-bold mb-6 text-booth-dark">Search by Voter Name</h1>
+    <div className="search-page">
+      <h1 className="search-page-title">Search by Voter Name</h1>
+
       <select
         value={selectedBooth}
         onChange={(e) => setSelectedBooth(e.target.value)}
-        className="bg-black hover:bg-grey text-white font-bold py-2 px-6 rounded-xl"
+        className="booth-dropdown"
       >
         <option value="all">All Booths</option>
-        
         <optgroup label="── Wards ──" disabled />
         <option value="100">Ward 100 & 100A</option>
         <option value="100BC">Ward 100B & 100C</option>
         <option value="100D">Ward 100D</option>
-        
+
         <optgroup label="── Individual Booth ──" disabled />
         <option value="76">Booth 76</option>
         <option value="77">Booth 77</option>
@@ -56,47 +57,71 @@ export default function FetchNAME() {
         <option value="200">Booth 200</option>
         <option value="201">Booth 201</option>
       </select>
-        <div className="flex flex-col sm:flex-row gap-4 py-2 px-6"></div>
-      <div className="flex flex-col sm:flex-row gap-4">
+
+      <div className="search-input-wrap">
+        <span className="search-input-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </span>
         <input
           type="text"
-          placeholder="Enter Voter Name"
-          className="border border-gray-300 rounded-xl px-4 py-2 flex-grow focus:ring-2 focus:ring-booth-DEFAULT focus:border-transparent outline-none"
-          onChange={(event) => {
-            setINPUT(event.target.value);
-          }}
+          placeholder="Enter voter name..."
+          className="search-input"
+          onChange={(event) => setINPUT(event.target.value)}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') refetch();
+            if (e.key === "Enter") refetch();
           }}
         />
-        <button
-          className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-6 rounded-xl transition-colors"
-          onClick={refetch}
-        >
-          SEARCH
-        </button>
       </div>
-      
+
+      <button className="search-submit-btn" onClick={refetch}>
+        Search
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </button>
+
       {isError && (
-        <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
-          Error: {error.message || "Failed to retrieve voter information"}
+        <div className="search-error">
+          Error: {error?.message || "Failed to retrieve voter information"}
         </div>
       )}
 
-      <div className="mt-8">
+      <div className="mt-2">
         {isLoading ? (
-          <div className="flex justify-center py-20">
-            <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+          <div className="flex justify-center py-16">
+            <div className="loader rounded-full border-4 h-10 w-10"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="results-grid">
             {data?.map((name, index) => (
               <DisplayCARD name={name} key={index} />
             ))}
             {data?.length === 0 && (
-              <div className="text-center py-10 text-gray-500 col-span-full">
-                No voters found with this name
-              </div>
+              <div className="no-results">No voters found with this name</div>
             )}
           </div>
         )}
@@ -105,5 +130,4 @@ export default function FetchNAME() {
   );
 }
 
-// Set the page title
-FetchNAME.pageTitle = "Search by Voter Name"; 
+FetchNAME.pageTitle = "Search by Voter Name";

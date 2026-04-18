@@ -1,46 +1,60 @@
-import { BsTelephone } from 'react-icons/bs';
-
 export const DisplayCARD = ({ name }) => {
   if (!name) return null;
-  
+
   return (
-    <div className="result flex flex-col h-auto w-full max-w-md mx-auto overflow-hidden shadow-lg rounded-xl p-4 sm:p-6 bg-green-200/90 backdrop-blur-sm transition-all hover:shadow-xl">
-      <div className="grid grid-cols-1 gap-2 md:gap-3">
-        <h2 className="text-base md:text-lg font-extrabold border-b pb-1 mb-1">
-          <span className="text-booth-dark">BOOTH:</span> {name?.Booth}
-        </h2>
-        
-        <div className="grid grid-cols-2 gap-2">
-          <h2 className="text-sm md:text-base font-bold">
-            <span className="text-booth-dark">PAGE NO:</span> {name?.PN}
-          </h2>
-          <h2 className="text-sm md:text-base font-bold">
-            <span className="text-booth-dark">SN:</span> {name?.SN}
-          </h2>
-          <h2 className="text-sm md:text-base font-bold">
-            <span className="text-booth-dark">Door:</span> {name?.House_Number}
-          </h2>
-          <h2 className="text-sm md:text-base font-bold flex items-center gap-2">
-            <span className="text-booth-dark"><BsTelephone size={15} className="inline-block text-black" /></span> {name?.Phone}
-          </h2>
+    <div className="result-card">
+      <div className="result-card-header">
+        <span className="result-card-booth">Booth {name?.Booth}</span>
+        {name?.VoterID && (
+          <span className="result-card-voter-id">{name.VoterID}</span>
+        )}
+      </div>
+
+      <div className="result-card-name">{name?.Name}</div>
+
+      {name?.Father_Husband && (
+        <div className="result-card-father">
+          Father / Husband: {name.Father_Husband}
         </div>
-        
-        <h2 className="text-base md:text-lg font-extrabold border-b pb-1 mb-1 mt-1">
-          <span className="text-booth-dark">Voter ID:</span> {name?.VoterID}
-        </h2>
-        
-        <h2 className="text-base md:text-lg font-extrabold">
-          <span className="text-booth-dark">NAME:</span> {name?.Name}
-        </h2>
-        
-        <h2 className="text-sm md:text-base font-bold">
-          <span className="text-booth-dark">Father/Husband:</span> {name?.Father_Husband}
-        </h2>
-        
-        <h2 className="text-sm md:text-base font-bold">
-          <span className="text-booth-dark">Vote Place:</span> {name?.Place}
-        </h2>
+      )}
+
+      {name?.Place && (
+        <div className="result-card-place">{name.Place}</div>
+      )}
+
+      <div className="result-card-chips">
+        <div className="result-chip">
+          <div className="result-chip-label">Page</div>
+          <div className="result-chip-value">{name?.PN ?? "—"}</div>
+        </div>
+        <div className="result-chip">
+          <div className="result-chip-label">Serial No</div>
+          <div className="result-chip-value">{name?.SN ?? "—"}</div>
+        </div>
+        <div className="result-chip">
+          <div className="result-chip-label">Door</div>
+          <div className="result-chip-value">{name?.House_Number ?? "—"}</div>
+        </div>
+        <div className="result-chip">
+          <div className="result-chip-label">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="9"
+              height="9"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            Phone
+          </div>
+          <div className="result-chip-value">{name?.Phone ?? "—"}</div>
+        </div>
       </div>
     </div>
   );
-}; 
+};

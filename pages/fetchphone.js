@@ -7,12 +7,13 @@ import { DisplayCARD } from "../components/DisplayCARD";
 export default function Fetchphone() {
   const { INPUT, setINPUT } = useContext(AppContext);
   const [selectedBooth, setSelectedBooth] = useState("all");
+
   const { data, isLoading, refetch, isError, error } = useQuery({
-    queryKey: ["PHONE", INPUT, selectedBooth], // Updated query key to be more specific
+    queryKey: ["PHONE", INPUT, selectedBooth],
     queryFn: async () => {
       try {
         const response = await axios.post(
-          `/api/booths/phone?phone=${INPUT}&booth=${selectedBooth}` // Fixed API endpoint
+          `/api/booths/phone?phone=${INPUT}&booth=${selectedBooth}`
         );
         return response.data;
       } catch (error) {
@@ -24,20 +25,20 @@ export default function Fetchphone() {
   });
 
   return (
-    <div className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-      <h1 className="text-2xl font-bold mb-6 text-booth-dark">Search by Phone Number</h1>
+    <div className="search-page">
+      <h1 className="search-page-title">Search by Phone Number</h1>
+
       <select
         value={selectedBooth}
         onChange={(e) => setSelectedBooth(e.target.value)}
-        className="bg-black hover:bg-grey text-white font-bold py-2 px-6 rounded-xl"
+        className="booth-dropdown"
       >
         <option value="all">All Booths</option>
-        
         <optgroup label="── Wards ──" disabled />
         <option value="100">Ward 100 & 100A</option>
         <option value="100BC">Ward 100B & 100C</option>
         <option value="100D">Ward 100D</option>
-        
+
         <optgroup label="── Individual Booth ──" disabled />
         <option value="76">Booth 76</option>
         <option value="77">Booth 77</option>
@@ -56,45 +57,71 @@ export default function Fetchphone() {
         <option value="200">Booth 200</option>
         <option value="201">Booth 201</option>
       </select>
-        <div className="flex flex-col sm:flex-row gap-4 py-2 px-6"></div>
-      <div className="flex flex-col sm:flex-row gap-4">
+
+      <div className="search-input-wrap">
+        <span className="search-input-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </span>
         <input
           type="text"
-          placeholder="Enter Phone Number (e.g., 9994463132)"
-          className="border border-gray-300 rounded-xl px-4 py-2 flex-grow focus:ring-2 focus:ring-booth-DEFAULT focus:border-transparent outline-none"
-          onChange={(event) => {
-            setINPUT(event.target.value);
-          }}
+          inputMode="numeric"
+          placeholder="Enter phone number (e.g. 9994463132)"
+          className="search-input"
+          onChange={(event) => setINPUT(event.target.value)}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') refetch();
+            if (e.key === "Enter") refetch();
           }}
         />
-        <button
-          className="bg-booth-DEFAULT hover:bg-booth-dark text-white font-bold py-2 px-6 rounded-xl transition-colors"
-          onClick={refetch}
-        >
-          SEARCH
-        </button>
       </div>
-      
+
+      <button className="search-submit-btn" onClick={refetch}>
+        Search
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </button>
+
       {isError && (
-        <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
-          Error: {error.message || "Failed to retrieve voter information"}
+        <div className="search-error">
+          Error: {error?.message || "Failed to retrieve voter information"}
         </div>
       )}
 
-      <div className="mt-8">
+      <div className="mt-2">
         {isLoading ? (
-          <div className="flex justify-center py-20">
-            <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+          <div className="flex justify-center py-16">
+            <div className="loader rounded-full border-4 h-10 w-10"></div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="results-grid">
             {data?.map((person, index) => (
               <DisplayCARD name={person} key={index} />
             ))}
             {data?.length === 0 && (
-              <div className="text-center py-10 text-gray-500 col-span-full">
+              <div className="no-results">
                 No voters found with this phone number
               </div>
             )}
@@ -105,5 +132,4 @@ export default function Fetchphone() {
   );
 }
 
-// Set the page title
 Fetchphone.pageTitle = "Search by Phone Number";
