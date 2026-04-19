@@ -501,7 +501,7 @@ body {
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.30);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .search-input:focus {
@@ -520,14 +520,14 @@ body {
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: #dc2626;
+  color: #ff0000;
   pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 22px;
   height: 22px;
-  background: rgba(220, 38, 38, 0.12);
+  background: rgb(34, 235, 8);
   border-radius: 50%;
   margin-top: -7px;
 }
@@ -646,7 +646,7 @@ body {
 .result-card-voter-id {
   background: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.9);
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 20px;
@@ -665,15 +665,15 @@ body {
 }
 
 .result-card-father {
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 12px;
+  color: rgba(255, 255, 255, );
+  font-size: 14px;
   margin-bottom: 8px;
   line-height: 1.6;
 }
 
 .result-card-place {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 11px;
+  color: rgba(255, 255, 255, );
+  font-size: 12px;
   margin-bottom: 14px;
   line-height: 1.5;
   font-style: italic;
@@ -693,8 +693,8 @@ body {
 }
 
 .result-chip-label {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: 9px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -706,7 +706,7 @@ body {
 
 .result-chip-value {
   color: #ffffff;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
   word-break: break-all;
 }
